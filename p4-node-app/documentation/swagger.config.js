@@ -190,7 +190,7 @@ const options = {
     },
     servers: [
       {
-        url: 'http://localhost:5555/api/v1',
+        url: 'http://localhost:5555',
         description: 'dev',
       }
     ],
