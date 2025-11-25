@@ -188,6 +188,13 @@ const options = {
             }
           }
         }
+      },
+      securitySchemes: {
+        cookieAuth: {
+          type: 'apiKey',
+          in: 'cookie',
+          name: 'token'
+        }
       }
     },
     servers: [

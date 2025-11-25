@@ -28,6 +28,8 @@ categoryRouter.use(requireAuth);
  *   get:
  *     tags: [Categories]
  *     summary: Get all categories of the current user
+ *     security:
+ *       - cookieAuth: []
  *     description: Requires a valid access token (cookie-based).
  *     parameters:
  *       - in: query
@@ -51,6 +53,8 @@ categoryRouter.get('/', getCategoriesController);
  *   get:
  *     tags: [Categories]
  *     summary: Get all archived categories of the current user
+ *     security:
+ *       - cookieAuth: []
  *     description: Requires a valid access token (cookie-based).
  *     parameters:
  *       - in: query
@@ -73,6 +77,8 @@ categoryRouter.get('/archived', getArchivedCategoriesController);
  *   get:
  *     tags: [Categories]
  *     summary: Get a specific category by ID
+ *     security:
+ *       - cookieAuth: []
  *     description: Requires a valid access token (cookie-based).
  *     parameters:
  *       - name: id
@@ -96,6 +102,8 @@ categoryRouter.get('/:id', getCategoryByIdController);
  *   post:
  *     tags: [Categories]
  *     summary: Create a new category for the current user
+ *     security:
+ *       - cookieAuth: []
  *     description: Requires a valid access token (cookie-based). User ID is derived from the token.
  *     requestBody:
  *       required: true
@@ -137,6 +145,8 @@ categoryRouter.post('/', createCategoryValidation, validate, createCategoryContr
  *   patch:
  *     tags: [Categories]
  *     summary: Update an existing category
+ *     security:
+ *       - cookieAuth: []
  *     description: Requires a valid access token (cookie-based).
  *     parameters:
  *       - name: id
@@ -179,6 +189,8 @@ categoryRouter.patch('/:id', updateCategoryValidation, validate, updateACategory
  *   patch:
  *     tags: [Categories]
  *     summary: Archive (soft delete) a category
+ *     security:
+ *       - cookieAuth: []
  *     parameters:
  *       - name: id
  *         in: path
@@ -201,6 +213,8 @@ categoryRouter.patch('/:id/archive', archiveCategoryController);
  *   patch:
  *     tags: [Categories]
  *     summary: Restore an archived category
+ *     security:
+ *       - cookieAuth: []
  *     parameters:
  *       - name: id
  *         in: path
@@ -223,6 +237,8 @@ categoryRouter.patch('/:id/restore', restoreCategoryController);
  *   delete:
  *     tags: [Categories]
  *     summary: Permanently delete a category
+ *     security:
+ *       - cookieAuth: []
  *     parameters:
  *       - name: id
  *         in: path
