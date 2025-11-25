@@ -23,6 +23,8 @@ const authRouter = Router();
  *   get:
  *     tags: [Authentication]
  *     summary: Get the currently authenticated user
+ *     security:
+ *       - cookieAuth: []
  *     description: Requires a valid access token (cookie-based).
  *     responses:
  *       200:

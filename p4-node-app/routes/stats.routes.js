@@ -15,6 +15,8 @@ statsRouter.use(requireAuth);
  *   get:
  *     tags: [Statistics]
  *     summary: Get the total income and expenses for the current month
+ *     security:
+ *       - cookieAuth: []
  *     description: Requires a valid access token (cookie-based).
  *     responses:
  *       200:
@@ -30,6 +32,8 @@ statsRouter.get('/monthly/income-expense', getMonthlyIncomeExpenseController);
  *   get:
  *     tags: [Statistics]
  *     summary: Get the total balance across all accounts of the current user
+ *     security:
+ *       - cookieAuth: []
  *     description: Requires a valid access token (cookie-based).
  *     responses:
  *       200:

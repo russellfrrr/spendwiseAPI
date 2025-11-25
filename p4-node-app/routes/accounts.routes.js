@@ -27,6 +27,8 @@ accountsRouter.use(requireAuth);
  *   get:
  *     tags: [Accounts]
  *     summary: Get all non-archived accounts of the current user
+ *     security:
+ *       - cookieAuth: []
  *     description: Requires a valid access token (cookie-based).
  *     responses:
  *       200:
@@ -42,6 +44,8 @@ accountsRouter.get('/', getAllAccsController);
  *   get:
  *     tags: [Accounts]
  *     summary: Get all archived accounts of the current user
+ *     security:
+ *       - cookieAuth: []
  *     description: Requires a valid access token (cookie-based).
  *     responses:
  *       200:
@@ -57,6 +61,8 @@ accountsRouter.get('/archived', getArchivedAccsController);
  *   get:
  *     tags: [Accounts]
  *     summary: Get a specific account of the current user
+ *     security:
+ *       - cookieAuth: []
  *     description: Requires a valid access token (cookie-based).
  *     parameters:
  *       - name: id
@@ -81,6 +87,8 @@ accountsRouter.get('/:id', getAccByIdController);
  *   post:
  *     tags: [Accounts]
  *     summary: Create a new account for the current user
+ *     security:
+ *       - cookieAuth: []
  *     description: Requires a valid access token (cookie-based). User ID is derived from the token.
  *     requestBody:
  *       required: true
@@ -120,6 +128,8 @@ accountsRouter.post('/', createAccountValidation, validate, makeAccController);
  *   patch:
  *     tags: [Accounts]
  *     summary: Update an account of the current user
+ *     security:
+ *       - cookieAuth: []
  *     description: Requires a valid access token (cookie-based).
  *     parameters:
  *       - name: id
@@ -161,6 +171,8 @@ accountsRouter.patch('/:id', updateAccountValidation, validate, updateAccByIdCon
  *   patch:
  *     tags: [Accounts]
  *     summary: Archive (soft delete) an account of the current user
+ *     security:
+ *       - cookieAuth: []
  *     parameters:
  *       - name: id
  *         in: path
@@ -183,6 +195,8 @@ accountsRouter.patch('/:id/archive', archiveAccController);
  *   patch:
  *     tags: [Accounts]
  *     summary: Restore an archived account of the current user
+ *     security:
+ *       - cookieAuth: []
  *     parameters:
  *       - name: id
  *         in: path
@@ -205,6 +219,8 @@ accountsRouter.patch('/:id/restore', restoreAccController);
  *   delete:
  *     tags: [Accounts]
  *     summary: Permanently delete an account of the current user
+ *     security:
+ *       - cookieAuth: []
  *     parameters:
  *       - name: id
  *         in: path

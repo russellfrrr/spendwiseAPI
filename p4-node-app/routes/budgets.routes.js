@@ -28,6 +28,8 @@ budgetsRouter.use(requireAuth);
  *     tags: [Budgets]
  *     summary: Get all non-archived budgets of the current user
  *     description: Requires a valid access token (cookie-based).
+ *     security:
+ *       - cookieAuth: []
  *     parameters:
  *       - in: query
  *         name: type
@@ -50,6 +52,8 @@ budgetsRouter.get('/', getBudgetsController);
  *     tags: [Budgets]
  *     summary: Get all archived budgets of the current user
  *     description: Requires a valid access token (cookie-based).
+ *     security:
+ *       - cookieAuth: []
  *     parameters:
  *       - in: query
  *         name: type
@@ -94,6 +98,8 @@ budgetsRouter.get('/:id', getBudgetByIdController);
  *   post:
  *     tags: [Budgets]
  *     summary: Create a new budget for the current user
+ *     security:
+ *       - cookieAuth: []
  *     description: Requires a valid access token (cookie-based). User ID is derived from the token.
  *     requestBody:
  *       required: true
@@ -138,6 +144,8 @@ budgetsRouter.post('/', createBudgetValidation, validate, createBudgetController
  *   patch:
  *     tags: [Budgets]
  *     summary: Update a budget
+ *     security:
+ *       - cookieAuth: []
  *     description: Requires a valid access token (cookie-based).
  *     parameters:
  *       - name: id
@@ -181,6 +189,8 @@ budgetsRouter.patch('/:id', updateBudgetValidation, validate, updateBudgetContro
  *   patch:
  *     tags: [Budgets]
  *     summary: Archive (soft delete) a budget
+ *     security:
+ *       - cookieAuth: []
  *     parameters:
  *       - name: id
  *         in: path
@@ -203,6 +213,8 @@ budgetsRouter.patch('/:id/archive', archiveBudgetController);
  *   patch:
  *     tags: [Budgets]
  *     summary: Restore an archived budget
+ *     security:
+ *       - cookieAuth: []
  *     parameters:
  *       - name: id
  *         in: path
@@ -225,6 +237,8 @@ budgetsRouter.patch('/:id/restore', restoreBudgetController);
  *   delete:
  *     tags: [Budgets]
  *     summary: Permanently delete a budget
+ *     security:
+ *       - cookieAuth: []
  *     parameters:
  *       - name: id
  *         in: path

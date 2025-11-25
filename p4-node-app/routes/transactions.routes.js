@@ -26,6 +26,8 @@ txRouter.use(requireAuth);
  *   get:
  *     tags: [Transactions]
  *     summary: Get all non-archived transactions of the current user
+ *     security:
+ *       - cookieAuth: []
  *     description: Requires a valid access token (cookie-based).
  *     parameters:
  *       - in: query
@@ -48,6 +50,8 @@ txRouter.get('/', getTransactionsController);
  *   get:
  *     tags: [Transactions]
  *     summary: Get all archived transactions of the current user
+ *     security:
+ *       - cookieAuth: []
  *     description: Requires a valid access token (cookie-based).
  *     parameters:
  *       - in: query
@@ -70,6 +74,8 @@ txRouter.get('/archived', getArchivedTransactionsController);
  *   get:
  *     tags: [Transactions]
  *     summary: Get a specific transaction by ID
+ *     security:
+ *       - cookieAuth: []
  *     description: Requires a valid access token (cookie-based).
  *     parameters:
  *       - name: id
@@ -94,6 +100,8 @@ txRouter.get('/:id', getTransactionsByIdController);
  *   post:
  *     tags: [Transactions]
  *     summary: Create a new transaction for the current user
+ *     security:
+ *       - cookieAuth: []
  *     description: Requires a valid access token (cookie-based). User ID is derived from the token.
  *     requestBody:
  *       required: true
@@ -146,6 +154,8 @@ txRouter.post('/', createTransactionValidation, validate, createTransactionContr
  *   patch:
  *     tags: [Transactions]
  *     summary: Update a transaction
+ *     security:
+ *       - cookieAuth: []
  *     description: Requires a valid access token (cookie-based).
  *     parameters:
  *       - name: id
@@ -194,6 +204,8 @@ txRouter.patch('/:id', updateTransactionValidation, validate, updateTransactionB
  *   patch:
  *     tags: [Transactions]
  *     summary: Archive (soft delete) a transaction
+ *     security:
+ *       - cookieAuth: []
  *     parameters:
  *       - name: id
  *         in: path
@@ -216,6 +228,8 @@ txRouter.patch('/:id/archive', archiveTransactionController);
  *   patch:
  *     tags: [Transactions]
  *     summary: Restore an archived transaction
+ *     security:
+ *       - cookieAuth: []
  *     parameters:
  *       - name: id
  *         in: path
@@ -238,6 +252,8 @@ txRouter.patch('/:id/restore', restoreTransactionController);
  *   delete:
  *     tags: [Transactions]
  *     summary: Permanently delete a transaction
+ *     security:
+ *       - cookieAuth: []
  *     parameters:
  *       - name: id
  *         in: path
